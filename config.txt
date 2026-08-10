@@ -2,7 +2,6 @@
 git config --global user.name 7diegojr
 git config --global user.email dfsntsjunior@gmail.com
 
-
 -- Preparação do Ambiente para desenvolvimento com Angular
 -- Node, NPM, Angular
 node -v
@@ -22,8 +21,20 @@ npm config get prefix
 -- Path das variáveis do sistema do windows
 
 -- Criar um projeto angular
-ng new ToDo-Angular --routing=false --style=css --skip-tests --standalone --ssr=false --file-name-style-guide=2025 --defaults
+ng new todo-angular --routing=false --style=css --skip-tests --standalone --ssr=false --file-name-style-guide=2025 --defaults
+Na mensagem que aparecer aperte N
 
 -- Para executar o projeto
-cd ToDo-Angular
+cd todo-angular
 ng serve --open
+
+-- Para restaurar o projeto clonado
+cd todo-angular
+npm install
+
+
+-- Para criar componentes (não poder estar executando o projeto)
+ng generate component components/todo-form --skip-tests
+ng generate component components/todo-list --skip-tests
+ng generate component components/todo-item --skip-tests
+ng generate service services/todo-store --skip-tests
