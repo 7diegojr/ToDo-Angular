@@ -15,7 +15,7 @@ export class TodoStore {
   );
   readonly pending = computed(() => this.total() - this.completed());
 
-  add(title: string): void { // void = sem retorno
+  add(title: string): void {
     const normalizedTitle = title.trim();
 
     if (!normalizedTitle) {
@@ -29,6 +29,20 @@ export class TodoStore {
     };
 
     this.updateTodos([...this.todosState(), newTodo]);
+  }
+
+  toggle(id: number): void {
+    const updatedTodos = this.todosState().map((todo) =>
+      todo.id == id
+        ? { ...todo, completed: !todo.completed }
+        : todo
+    );
+    this.updateTodos(updatedTodos);
+  }
+
+  remove(id: number): void {
+    const updatedTodos = this.todosState().filter((todo) => todo.id != id);
+    this.updateTodos(updatedTodos);
   }
 
   private updateTodos(todos: Todo[]): void {
