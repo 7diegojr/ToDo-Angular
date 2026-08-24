@@ -10,8 +10,8 @@
 
     <app-todo-list
       [todos]="store.todos()"
-      (todoToggled)="store.toggle($event)"
-      {todoRemoved}="store.removed($event)"
+      (todosToggled)="store.toggle($event)"
+      (todosRemoved)="store.remove($event)"
     />
 
   </section>
