@@ -1,14 +1,18 @@
 <main class="page">
   <section class="todo-card">
-    <p class="eyebrow">Angular</p>
-    <h1>Lista de tarefas</h1>
-    <p>Primeiro teste de comunicação entre componentes.</p>
+    <header>
+      <p class="eyebrow">Angular</p>
+      <h1>Lista de tarefas</h1>
+      <p>Organize suas atividades e mantenha os dados salvos no navegador.</p>
+    </header>
 
-    <app-todo-form (todoAdded)="showTitle($event)" />
+    <app-todo-form (todoAdded)="store.add($event)" />
 
-    <p>
-      <strong>Última tarefa recebida: </strong>
-      {{ ultimaTarefa || 'Nenhuma tarefa ativa' }}
-    </p>
+    <app-todo-list
+      [todos]="store.todos()"
+      (todoToggled)="store.toggle($event)"
+      {todoRemoved}="store.removed($event)"
+    />
+
   </section>
 </main>
