@@ -10,6 +10,6 @@ import { TodoItem } from '../todo-item/todo-item';
 })
 export class TodoList {
   readonly todos = input.required<Todo[]>();
-  readonly todosToggled = output<number>();
-  readonly todosRemoved = output<number>();
+  readonly todoToggled = output<number>();
+  readonly todoRemoved = output<number>();
 }

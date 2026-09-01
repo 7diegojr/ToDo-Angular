@@ -9,6 +9,6 @@ import { Todo } from '../../models/todo';
 })
 export class TodoItem {
   readonly todo = input.required<Todo>();
-  readonly todosToggled = output<number>();
-  readonly todosRemoved = output<number>();
+  readonly todoToggled = output<number>();
+  readonly todoRemoved = output<number>();
 }
