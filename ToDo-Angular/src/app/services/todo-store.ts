@@ -66,6 +66,11 @@ export class TodoStore {
     this.updateTodos(updatedTodos);
   }
 
+  clearCompleted(): void {
+    const pendingTodos = this.todosState().filter((todo) => !todo.completed);
+    this.updateTodos(pendingTodos);
+  }
+
   private updateTodos(todos: Todo[]): void {
     this.todosState.set(todos);
     localStorage.setItem(this.storageKey, JSON.stringify(todos));
